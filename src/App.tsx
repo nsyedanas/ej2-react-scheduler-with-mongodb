@@ -14,10 +14,18 @@ export default class App extends React.Component<{}, {}> {
 
   public render() {
     return (
+      
       <div className="control-section">
         <div className="schedule-control">
-          <ScheduleComponent id="schedule" ref={(schedule: ScheduleComponent) => this.scheduleObj = schedule} height="550px"
-            selectedDate={new Date(2017, 5, 5)} currentView="Month" eventSettings={{ dataSource: this.dataManager }}>
+          <ScheduleComponent 
+          id="schedule" 
+          ref={(schedule: ScheduleComponent | null) => { 
+              this.scheduleObj = schedule!;
+            }}
+          height="550px"
+          selectedDate={new Date(2026, 0, 1)} 
+          currentView="Month" 
+          eventSettings={ {dataSource: this.dataManager }}>
             <ViewsDirective>
               <ViewDirective option="Day" />
               <ViewDirective option="Week" />
